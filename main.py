@@ -22,7 +22,7 @@ def process_img(img_path):
         Predicted flower label - string
     """
     # Read image
-    model = load_model("flower.model")
+    model = load_model(r"C:\Users\Umang\Downloads\CS Year 3\Term 1\Software Quality 3\Assignments\Assignment 2\Software-Quality-3-Assignment-2\flower_model.keras")
     # Read & preprocess image
     image = cv2.imread(img_path) # pylint: disable=E1101
     image = cv2.resize(image, (199, 199)) # pylint: disable=E1101
