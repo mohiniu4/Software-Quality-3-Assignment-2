@@ -20,3 +20,4 @@ def test_invalid_process_img_file():
 def test_process_img_png_format():
     res = process_img("rose.png")
     assert res in ["daisy", "dandelon", "roses", "sunflowers", "tulips"] 
+
