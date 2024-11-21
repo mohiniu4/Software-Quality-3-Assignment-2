@@ -4,3 +4,4 @@ flask
 opencv-python
 flask
 numpy
+pre-commit
