@@ -1,0 +1,40 @@
+name: Assignment 4
+
+on: [push, pull_request] 
+
+jobs:
+  Assignment4:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repostiory 
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+   
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pylint pytest
+
+      - name: Pre-commit
+        run: pre-commit run --all-files
+
+      - name: Pylint
+        run: pylint main.py tests/*.py
+
+      - name: Unit Tests
+        run: pytest test_main.py --disable-warnings
+
+      - name: Happy/Sad Path Tests
+        run: pytest A3_tests.py --disable-warnings
+
+      - name: Acceptance Tests
+        if: success()
+        run: pytest Assignment4_Acceptance_Test.py --disable-warnings
+
+  
