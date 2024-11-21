@@ -31,6 +31,7 @@ jobs:
         run: pytest test_main.py --disable-warnings
 
       - name: Happy/Sad Path Tests
+        if: success()
         run: pytest A3_tests.py --disable-warnings
 
       - name: Acceptance Tests
